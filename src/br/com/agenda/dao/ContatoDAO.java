@@ -41,6 +41,7 @@ public class ContatoDAO {
     }
 
     public List<Contato> getContatos(){
+        //listagem de contatos
         String sql = "SELECT * FROM contatos";
         List<Contato> contatos = new ArrayList<Contato>();
         Connection conn = null;
