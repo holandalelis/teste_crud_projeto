@@ -10,9 +10,12 @@ public class Main {
 
         ContatoDAO contatoDAO = new ContatoDAO();
         Contato contato = new Contato();
-        contato.setNome("Pedro Holanda");
-        contato.setIdade(25);
+        contato.setNome("Luciano Filho");
+        contato.setIdade(28);
         contato.setDataCadastro(new Date());
         contatoDAO.save(contato);
+        for(Contato c : contatoDAO.getContatos()){
+            System.out.println("Contato: " + c.getNome());
+        }
     }
 }
