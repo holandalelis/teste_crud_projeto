@@ -10,10 +10,16 @@ public class Main {
 
         ContatoDAO contatoDAO = new ContatoDAO();
         Contato contato = new Contato();
-        contato.setNome("Luciano Filho");
+        contato.setNome("Pedro Holanda");
         contato.setIdade(28);
         contato.setDataCadastro(new Date());
-        contatoDAO.save(contato);
+        //contatoDAO.save(contato); comentado apenas para não criar em duplicidade após o update
+        Contato c1 = new Contato();
+        c1.setNome("Pedro Holanda Lelis");
+        c1.setIdade(29);
+        c1.setDataCadastro(new Date());
+        c1.setId(1);//numero da tabela mysql da Primary Key
+        contatoDAO.update(c1);
         for(Contato c : contatoDAO.getContatos()){
             System.out.println("Contato: " + c.getNome());
         }
