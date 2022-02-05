@@ -18,8 +18,9 @@ public class Main {
         c1.setNome("Pedro Holanda Lelis");
         c1.setIdade(29);
         c1.setDataCadastro(new Date());
-        c1.setId(1);//numero da tabela mysql da Primary Key
-        contatoDAO.update(c1);
+        c1.setId(1);//numero no banco mysql da Primary Key
+        //contatoDAO.update(c1); comentando apenas para testar o método updade
+        contatoDAO.deleteByID(1);//numero do id utilizado no banco mysql
         for(Contato c : contatoDAO.getContatos()){
             System.out.println("Contato: " + c.getNome());
         }
