@@ -40,8 +40,20 @@ public class ContatoDAO {
         }
     }
 
+    public void update(Contato contato){
+
+        String sql = " UPDATE contatos SET nome = ?, idade = ?, datacadastro = ? WHERE id = ? ";
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        try {
+            conn = ConnectionFactory.createConnectionToMySQL();
+            pstm = (PreparedStatement) conn.prepareStatement(sql);
+            pstm.setString(1, contato.getNome());
+            pstm.setInt(2, contato.getId());
+        }
+    }
+
     public List<Contato> getContatos(){
-        //listagem de contatos
         String sql = "SELECT * FROM contatos";
         List<Contato> contatos = new ArrayList<Contato>();
         Connection conn = null;
